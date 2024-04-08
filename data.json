@@ -190,46 +190,44 @@
          ]
       },
       {
-         "nom":"Risotto aux champignons",
+         "nom":"Merguez frites maison",
          "categorie":"Plat principal",
-         "temps_preparation":"40 minutes",
+         "temps_preparation":"30 minutes",
          "ingredients":[
             {
-               "nom":"Riz",
-               "quantite":"300g"
+               "nom":"Merguez",
+               "quantite":"500g"
             },
             {
-               "nom":"Oigons",
-               "quantite":"3"
+               "nom":"Pommes de terre",
+               "quantite":"1kg"
             },
             {
-               "nom":"Vin blanc",
-               "quantite":"50g"
+               "nom":"Huile végétale",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Parmesan",
-               "quantite":"50g"
+               "nom":"Sel",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Beurre",
-               "quantite":"10g"
+               "nom":"Poivre",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Huile d'olive",
-               "quantite":"10g"
+               "nom":"Paprika",
+               "quantite":"quantité suffisante"
             }
          ],
          "etapes":[
-            "Dans une grande poêle, faites chauffer l'huile d'olive à feu moyen.",
-            "Ajoutez l'oignon et faites-le revenir jusqu'à ce qu'il soit translucide.",
-            "Ajoutez les champignons et l'ail, puis faites-les cuire jusqu'à ce qu'ils soient tendres et dorés.",
-            "Ajoutez le riz dans la poêle et mélangez-le bien avec les champignons et l'oignon.",
-            "Versez le vin blanc dans la poêle et remuez jusqu'à ce qu'il soit absorbé par le riz.",
-            "Ajoutez une louche de bouillon chaud dans la poêle et remuez le riz jusqu'à ce que le liquide soit absorbé.",
-            "Répétez cette étape en ajoutant une louche de bouillon à la fois et en remuant constamment jusqu'à ce que le riz soit cuit al dente et crémeux.",
-            "Retirez la poêle du feu et incorporez le parmesan râpé.",
-            "Assaisonnez avec du sel et du poivre selon votre goût.",
-            "Servez le risotto chaud, garni de persil frais haché."
+            "Préchauffez votre four à 200°C (thermostat 6-7).",
+            "Pelez les pommes de terre et coupez-les en bâtonnets.",
+            "Rincez les bâtonnets de pommes de terre sous l'eau froide et séchez-les avec un torchon propre.",
+            "Disposez les frites sur une plaque de cuisson recouverte de papier sulfurisé.",
+            "Arrosez les frites d'un filet d'huile végétale, puis assaisonnez-les avec du sel, du poivre et du paprika selon votre goût.",
+            "Enfournez les frites et laissez-les cuire pendant environ 25 à 30 minutes, en les retournant à mi-cuisson, jusqu'à ce qu'elles soient dorées et croustillantes.",
+            "Pendant ce temps, faites cuire les merguez dans une poêle chaude jusqu'à ce qu'elles soient bien dorées et cuites à votre goût.",
+            "Servez les merguez chaudes accompagnées des frites maison bien croustillantes."
          ]
       },
       {
@@ -400,7 +398,7 @@
                "quantite":"1"
             },
             {
-               "nom":"Mirtilles",
+               "nom":"Myrtilles",
                "quantite":"150g"
             }
          ],
