@@ -19,7 +19,6 @@ function fetchData() {
                 </ul>
             </article>
             `;
-
         });
     })
 }
