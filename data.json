@@ -190,46 +190,48 @@
          ]
       },
       {
-         "nom":"Risotto aux champignons",
+         "nom":"Quiche aux épinards et feta",
          "categorie":"Plat principal",
-         "temps_preparation":"40 minutes",
+         "temps_preparation":"60 minutes",
          "ingredients":[
             {
-               "nom":"Riz",
+               "nom":"Pâte brisée",
+               "quantite":"1"
+            },
+            {
+               "nom":"Épinards frais",
                "quantite":"300g"
             },
             {
-               "nom":"Oigons",
-               "quantite":"3"
+               "nom":"Feta",
+               "quantite":"200g"
             },
             {
-               "nom":"Vin blanc",
-               "quantite":"50g"
+               "nom":"Oeufs",
+               "quantite":"4"
             },
             {
-               "nom":"Parmesan",
-               "quantite":"50g"
+               "nom":"Crème fraîche",
+               "quantite":"200ml"
             },
             {
-               "nom":"Beurre",
-               "quantite":"10g"
+               "nom":"Ail",
+               "quantite":"2 gousses"
             },
             {
                "nom":"Huile d'olive",
-               "quantite":"10g"
+               "quantite":"1 cuillère à soupe"
             }
          ],
          "etapes":[
-            "Dans une grande poêle, faites chauffer l'huile d'olive à feu moyen.",
-            "Ajoutez l'oignon et faites-le revenir jusqu'à ce qu'il soit translucide.",
-            "Ajoutez les champignons et l'ail, puis faites-les cuire jusqu'à ce qu'ils soient tendres et dorés.",
-            "Ajoutez le riz dans la poêle et mélangez-le bien avec les champignons et l'oignon.",
-            "Versez le vin blanc dans la poêle et remuez jusqu'à ce qu'il soit absorbé par le riz.",
-            "Ajoutez une louche de bouillon chaud dans la poêle et remuez le riz jusqu'à ce que le liquide soit absorbé.",
-            "Répétez cette étape en ajoutant une louche de bouillon à la fois et en remuant constamment jusqu'à ce que le riz soit cuit al dente et crémeux.",
-            "Retirez la poêle du feu et incorporez le parmesan râpé.",
-            "Assaisonnez avec du sel et du poivre selon votre goût.",
-            "Servez le risotto chaud, garni de persil frais haché."
+            "Préchauffez votre four à 180°C (thermostat 6).",
+            "Étalez la pâte dans un moule à tarte et piquez le fond avec une fourchette.",
+            "Dans une poêle, faites chauffer l'huile d'olive à feu moyen. Ajoutez l'ail haché et les épinards. Laissez cuire jusqu'à ce que les épinards soient complètement flétris.",
+            "Dans un bol, battez les oeufs avec la crème fraîche. Salez et poivrez.",
+            "Ajoutez les épinards cuits et la feta émiettée au mélange d'oeufs et de crème. Mélangez bien.",
+            "Versez la préparation sur la pâte brisée.",
+            "Faites cuire au four pendant environ 40 minutes, ou jusqu'à ce que la quiche soit dorée et ferme au toucher.",
+            "Laissez tiédir quelques minutes avant de servir."
          ]
       },
       {
