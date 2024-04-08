@@ -190,48 +190,44 @@
          ]
       },
       {
-         "nom":"Quiche aux épinards et feta",
+         "nom":"Merguez frites maison",
          "categorie":"Plat principal",
-         "temps_preparation":"60 minutes",
+         "temps_preparation":"30 minutes",
          "ingredients":[
             {
-               "nom":"Pâte brisée",
-               "quantite":"1"
+               "nom":"Merguez",
+               "quantite":"500g"
             },
             {
-               "nom":"Épinards frais",
-               "quantite":"300g"
+               "nom":"Pommes de terre",
+               "quantite":"1kg"
             },
             {
-               "nom":"Feta",
-               "quantite":"200g"
+               "nom":"Huile végétale",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Oeufs",
-               "quantite":"4"
+               "nom":"Sel",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Crème fraîche",
-               "quantite":"200ml"
+               "nom":"Poivre",
+               "quantite":"quantité suffisante"
             },
             {
-               "nom":"Ail",
-               "quantite":"2 gousses"
-            },
-            {
-               "nom":"Huile d'olive",
-               "quantite":"1 cuillère à soupe"
+               "nom":"Paprika",
+               "quantite":"quantité suffisante"
             }
          ],
          "etapes":[
-            "Préchauffez votre four à 180°C (thermostat 6).",
-            "Étalez la pâte dans un moule à tarte et piquez le fond avec une fourchette.",
-            "Dans une poêle, faites chauffer l'huile d'olive à feu moyen. Ajoutez l'ail haché et les épinards. Laissez cuire jusqu'à ce que les épinards soient complètement flétris.",
-            "Dans un bol, battez les oeufs avec la crème fraîche. Salez et poivrez.",
-            "Ajoutez les épinards cuits et la feta émiettée au mélange d'oeufs et de crème. Mélangez bien.",
-            "Versez la préparation sur la pâte brisée.",
-            "Faites cuire au four pendant environ 40 minutes, ou jusqu'à ce que la quiche soit dorée et ferme au toucher.",
-            "Laissez tiédir quelques minutes avant de servir."
+            "Préchauffez votre four à 200°C (thermostat 6-7).",
+            "Pelez les pommes de terre et coupez-les en bâtonnets.",
+            "Rincez les bâtonnets de pommes de terre sous l'eau froide et séchez-les avec un torchon propre.",
+            "Disposez les frites sur une plaque de cuisson recouverte de papier sulfurisé.",
+            "Arrosez les frites d'un filet d'huile végétale, puis assaisonnez-les avec du sel, du poivre et du paprika selon votre goût.",
+            "Enfournez les frites et laissez-les cuire pendant environ 25 à 30 minutes, en les retournant à mi-cuisson, jusqu'à ce qu'elles soient dorées et croustillantes.",
+            "Pendant ce temps, faites cuire les merguez dans une poêle chaude jusqu'à ce qu'elles soient bien dorées et cuites à votre goût.",
+            "Servez les merguez chaudes accompagnées des frites maison bien croustillantes."
          ]
       },
       {
