@@ -32,7 +32,7 @@ function displayRecipes(page) {
                 <ul class="steps">
                     ${recipe.etapes.map(etape => `<li>${etape}</li><br>`).join('')}
                 </ul>
-                <button class="addFav"><img src=""></button>
+                <button class="addFav">Favoris</button>
             </article>
             `;
         });
