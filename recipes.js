@@ -1,32 +1,3 @@
-// function fetchData() {
-//     fetch('data.json')
-//     .then(response => response.json())
-//     .then(data => {
-//         const recipes = data.recettes;
-//         const display = document.querySelector('#display');
-
-//         recipes.forEach(recipe => {
-//             display.innerHTML += `
-//             <article class="recipe">
-//                 <h2>${recipe.nom}</h2>
-//                 <p>${recipe.categorie}</p>
-//                 <p>Temps de préparation : ${recipe.temps_preparation}</p>
-//                 <ul>
-//                     ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}<button class
-//                     ="addBtn">+</button></li>`).join('')}
-//                 </ul>
-//                 <ul class="steps">
-//                     ${recipe.etapes.map(etape => `<li>${etape}</li><br>`).join('')}
-//                 </ul>
-//             </article>
-//             `;
-
-//         });
-//     })
-// }
-
-// fetchData();
-
 let currentPage = 1;
 const recipesPerPage = 9;
 
@@ -45,11 +16,6 @@ function displayRecipes(page) {
         
         paginatedRecipes.forEach(recipe => {
             display.innerHTML += `
-            <div class="animatedCard">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
             <article class="recipe">
                 <h2>${recipe.nom}</h2>
                 <p>${recipe.categorie}</p>
@@ -68,7 +34,6 @@ function displayRecipes(page) {
                     ${recipe.etapes.map(etape => `<li>${etape}</li><br>`).join('')}
                 </ul>
             </article>
-            </div>
             `;
         });
 
