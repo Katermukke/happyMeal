@@ -17,19 +17,18 @@ function displayRecipes(page) {
         paginatedRecipes.forEach(recipe => {
             display.innerHTML += `
             <article class="recipe">
-                <h2>${recipe.nom}</h2>
-                <p>${recipe.categorie}</p>
-                <p>Temps de préparation : ${recipe.temps_preparation}</p>
-                <ul>
-                    ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
-                    <button class="addBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    +
-                    </button></li>`).join('')}
-                </ul>
+            <div class="recipe-banner">
+                <img class="recipe-image" src="${recipe.image}">
+                <div class="recipe-info">
+                    <h2>${recipe.nom}</h2>
+                    <p>${recipe.categorie}</p>
+                    <p>Temps de préparation : ${recipe.temps_preparation}</p>
+                    <ul>
+                        ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
+                        <button class="addBtn">+</button></li>`).join('')}
+                    </ul>
+                </div>
+            </div>
                 <ul class="steps">
                     ${recipe.etapes.map(etape => `<li>${etape}</li><br>`).join('')}
                 </ul>
@@ -51,20 +50,8 @@ function displayRecipes(page) {
 function initPagination() {
     const paginationControls = document.querySelector('#pagination-controls');
     paginationControls.innerHTML = `
-    <button class='paginationBtn' onclick="displayRecipes(1)">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    Page 1
-    </button>
-    <button class='paginationBtn' onclick="displayRecipes(2)">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    Page 2
-    </button>
+    <button class='paginationBtn' onclick="displayRecipes(1)">Page 1</button>
+    <button class='paginationBtn' onclick="displayRecipes(2)">Page 2</button>
     `
     displayRecipes(1);
 }
