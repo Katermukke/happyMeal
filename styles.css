@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Angkor&family=Ojuju:wght@200..800&family=Oleo+Script+Swash+Caps:wght@400;700&family=Orbitron:wght@400..900&family=Play:wght@400;700&family=Rubik+Dirt&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid black;
+  height: 8rem;
+}
+
+header nav .svgLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+  border-right: 0.1rem solid black;
+}
+
+header nav .svgLeft img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+}
+
+header nav ul img {
+  height: 5rem;
+  width: 5rem;
+}
+
+header nav ul li a {
+  color: black;
+}
+
+header nav .svgRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+  background-color: black;
+  border-left: 0.1rem solid black;
+}
+
+header nav .svgRight img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+
+
