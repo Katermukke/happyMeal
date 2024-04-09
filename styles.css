@@ -21,7 +21,7 @@ header nav .svgLeft {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  width: 10%;
   height: 100%;
   border-right: 0.1rem solid black;
 }
@@ -36,7 +36,7 @@ header nav ul {
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  width: 70%;
+  width: 80%;
 }
 
 header nav ul img {
@@ -52,7 +52,7 @@ header nav .svgRight {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  width: 10%;
   height: 100%;
   background-color: black;
   border-left: 0.1rem solid black;
@@ -63,5 +63,140 @@ header nav .svgRight img {
   height: 1.2rem;
 }
 
+.wallpaper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
 
+.wallpaper .divTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.wallpaper .divTitle h1 {
+  font-size: 4rem;
+}
+
+.wallpaper .divTitle button {
+  height: 2rem;
+  width: 5rem;
+  background-color: black;
+  color: white;
+  border: 0.1rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-Jockey-One);
+  width: 100%;
+  position: relative;
+  background-color: var(--color-pastel-yellow);
+  border-radius: 2rem;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 0 1rem 0;
+}
+
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3));
+  padding: 1rem 0 1rem 0;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel .card,
+.carousel .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  list-style: none;
+  cursor: pointer;
+  padding: 2rem 0 2rem 0;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.carousel .card .img {
+  background-color: var(--color-pastel-pink);
+  border-radius: 2.2rem;
+  border: 2px solid;
+}
+
+.carousel .card .img img {
+  height: 25rem;
+  width: 25rem;
+  border-radius: 2rem;
+  object-fit: cover;
+  border: 2px solid;
+}
+
+@media screen and (max-width: 900px) {
+  .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--color-pastel-pink);
+}
+
+.carousel .card .severing {
+  font-size: 1.31rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-Just-Another-Hand);
+}
+
+.carousel .card .price {
+  font-size: 1.31rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-pastel-pink);
+}
+
+@media screen and (max-width: 600px) {
+  .carousel .card {
+    padding: 1rem 2rem;
+  }
+}
