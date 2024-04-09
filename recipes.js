@@ -17,21 +17,22 @@ function displayRecipes(page) {
         paginatedRecipes.forEach(recipe => {
             display.innerHTML += `
             <article class="recipe">
-            <div class="recipe-banner">
-                <img class="recipe-image" src="${recipe.image}">
-                <div class="recipe-info">
-                    <h2>${recipe.nom}</h2>
-                    <p>${recipe.categorie}</p>
-                    <p>Temps de préparation : ${recipe.temps_preparation}</p>
-                    <ul>
-                        ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
-                        <button class="addBtn">+</button></li>`).join('')}
-                    </ul>
+                <div class="recipe-banner">
+                    <img class="recipe-image" src="${recipe.image}">
+                    <div class="recipe-info">
+                        <h2>${recipe.nom}</h2>
+                        <p>${recipe.categorie}</p>
+                        <p>Temps de préparation : ${recipe.temps_preparation}</p>
+                        <ul>
+                            ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
+                            <button class="addBtn">+</button></li>`).join('')}
+                        </ul>
+                    </div>
                 </div>
-            </div>
                 <ul class="steps">
                     ${recipe.etapes.map(etape => `<li>${etape}</li><br>`).join('')}
                 </ul>
+                <button class="addFav"><img src=""></button>
             </article>
             `;
         });

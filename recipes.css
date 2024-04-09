@@ -16,9 +16,8 @@
     margin: 2rem;
     gap: 1rem;
     padding: 2rem;
-    border: 1px solid black;
-    background: #6b0000;
-    color: white;
+    border: 4px solid black;
+    border-radius: 2rem;
 }
 
 #display {
@@ -30,8 +29,6 @@
 
 header {
     display: flex;
-    background: #6b0000;
-    color: white;
 }
 
 a {
@@ -72,42 +69,80 @@ nav {
 
 .paginationBtn {
     position: relative;
-    display: inline-block;
-    padding: 0.5rem;
     color: black;
+    z-index: 0;
+    padding: 0.5rem;
     background: white;
-    text-transform: uppercase;
     overflow: hidden;
-    transition: 0.5s;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 2rem;
+}
+
+.paginationBtn::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50% 50% 0% 0%;
+    z-index: -1;
+    transition: all .5s;
+}
+
+.paginationBtn:hover::before {
+    top: 0px;
+    border-radius: 0;
 }
 
 .paginationBtn:hover {
-    background: linear-gradient(18deg, rgb(50, 125, 31) 25%, rgb(198, 17, 17)100%);
     color: white;
     transition: 0.5s;
 }
 
 .addBtn {
     position: relative;
-    display: inline-block;
-    padding: 0.5rem;
     color: black;
+    z-index: 0;
+    padding: 0.5rem;
     background: white;
-    text-transform: uppercase;
+    height: 1.5rem;
+    border-radius: 50%;
     overflow: hidden;
-    transition: 0.5s;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid black;
 }
 
-.addBtn:hover {
-    background: linear-gradient(18deg, rgb(50, 125, 31) 25%, rgb(198, 17, 17)100%);
-    color: white;
-    transition: 0.5s;
+.addBtn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50% 50% 0% 0%;
+    z-index: -1;
+    transition: all .5s;
 }
+
+.addBtn:hover::before {
+    top: 0px;
+    border-radius: 0;
+}
+
+.addBtn:hover {
+    color: white;
+}
+
 
 .recipe-banner {
     display: flex;
@@ -119,7 +154,8 @@ nav {
     width: 66%;
     height: 20rem;
     object-fit: cover;
-    border: 1px solid black;
+    border: 4px solid black;
+    border-radius: 2rem;
 }
 
 .recipe-info {
