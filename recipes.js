@@ -1,5 +1,5 @@
 let currentPage = 1;
-const recipesPerPage = 9;
+let recipesPerPage = 9;
 
 function displayRecipes(page) {
     fetch('data.json')
@@ -18,14 +18,20 @@ function displayRecipes(page) {
             display.innerHTML += `
             <article class="recipe">
                 <div class="recipe-banner">
+                <input class="recipeId" type="hidden" value="${recipe.id}"></input>
                     <img class="recipe-image" src="${recipe.image}">
                     <div class="recipe-info">
                         <h2>${recipe.nom}</h2>
                         <p>${recipe.categorie}</p>
                         <p>Temps de préparation : ${recipe.temps_preparation}</p>
                         <ul>
-                            ${recipe.ingredients.map(ingredient => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
-                            <button class="addBtn">+</button></li>`).join('')}
+                            ${recipe.ingredients.map(ingredient => `
+                                <li class="ingredient">
+                                    <span class="nom">${ingredient.nom}:</span>
+                                    <span class="quantite">${ingredient.quantite}</span>
+                                    <button class="addBtn">+</button>
+                                </li>
+                            `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -37,6 +43,9 @@ function displayRecipes(page) {
             `;
         });
 
+        attachFavEvent();
+    })
+    .then(() => {
         if (page === 1) {
             currentPage = 2;
         }
@@ -62,21 +71,37 @@ initPagination();
 
 ///////////
 
-fetch('data.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error
-                (`HTTP error! Status: ${response.status}`);
-            } 
-                return response.json();
-            })    
-    .then(data => {
-        const dataString = JSON.stringify(data);
-        localStorage.setItem('favRecipes', dataString);
-        console.log('Toutes mes recettes');
-        })
-    .catch((error) => 
-        console.error("Unable to fetch data:", error));
 
+function attachFavEvent() {
+    let addFavBtn = document.querySelectorAll('.addFav');
+    addFavBtn.forEach(button => {
+        button.addEventListener('click', function() {
 
-        
+            const parentRecipes = this.parentNode;
+            const recipeId = parentRecipes.querySelector('.recipeId').value;
+            const idJson = {
+                id : recipeId
+            };
+
+            let existingFavList = localStorage.getItem('favRecipes');
+            if (!existingFavList) {
+                existingFavList = [];
+            } else {
+                existingFavList = JSON.parse(existingFavList);
+            }
+
+            const existingRecipeIndex = existingFavList.findIndex(item => item.id === recipeId);
+
+            if (existingRecipeIndex === -1) {
+                existingFavList.push(idJson);
+                this.classList.add('colored');
+            } else {
+                existingFavList.splice(existingRecipeIndex, 1);
+                this.classList.remove('colored');
+                
+            }
+
+            localStorage.setItem('favRecipes', JSON.stringify(existingFavList));
+        });
+    });
+}
