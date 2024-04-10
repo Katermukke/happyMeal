@@ -44,6 +44,7 @@ function displayRecipes(page) {
             </article>
             `;
       });
+      attachFavEvent();
       attachEventListeners();
     })
     .then(() => {
