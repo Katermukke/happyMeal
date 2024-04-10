@@ -1,5 +1,5 @@
 let currentPage = 1;
-const recipesPerPage = 9;
+let recipesPerPage = 9;
 
 function displayRecipes(page) {
   fetch("data.json")
@@ -26,14 +26,13 @@ function displayRecipes(page) {
                           recipe.temps_preparation
                         }</p>
                         <ul>
-                            ${recipe.ingredients
-                              .map(
-                                (
-                                  ingredient
-                                ) => `<li class="ingredient">${ingredient.nom}: ${ingredient.quantite}
-                            <button class="addBtn">+</button></li>`
-                              )
-                              .join("")}
+                            ${recipe.ingredients.map(ingredient => `
+                                <li class="ingredient">
+                                    <span class="nom">${ingredient.nom}:</span>
+                                    <span class="quantite">${ingredient.quantite}</span>
+                                    <button class="addBtn">+</button>
+                                </li>
+                            `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -47,9 +46,9 @@ function displayRecipes(page) {
             `;
       });
 
-      if (page === 1) {
-        currentPage = 2;
-      }
+        if (page === 1) {
+            currentPage = 2;
+        }
     })
     .then(() => {
       if (currentPage === 2) {
@@ -57,6 +56,7 @@ function displayRecipes(page) {
       }
     });
 }
+
 
 function initPagination() {
   const paginationControls = document.querySelector("#pagination-controls");
