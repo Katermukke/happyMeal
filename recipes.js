@@ -58,3 +58,25 @@ function initPagination() {
 }
 
 initPagination();
+
+
+///////////
+
+fetch('data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error
+                (`HTTP error! Status: ${response.status}`);
+            } 
+                return response.json();
+            })    
+    .then(data => {
+        const dataString = JSON.stringify(data);
+        localStorage.setItem('favRecipes', dataString);
+        console.log('Toutes mes recettes');
+        })
+    .catch((error) => 
+        console.error("Unable to fetch data:", error));
+
+
+        
