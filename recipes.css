@@ -158,25 +158,11 @@
     border-radius: 2rem;
 }
 
-.addFav::before {
-    content: '';
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    border-radius: 50% 50% 0% 0%;
-    z-index: -1;
-    transition: all .5s;
-}
-
-.addFav:hover::before {
-    top: 0px;
-    border-radius: 0;
-}
-
 .addFav:hover {
+    cursor: pointer;
+}
+
+.colored {
+    background-color: rgb(168, 8, 8);
     color: white;
-    transition: 0.5s;
 }

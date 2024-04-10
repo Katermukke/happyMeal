@@ -16,6 +16,7 @@ function displayRecipes(page) {
         display.innerHTML += `
             <article class="recipe">
                 <div class="recipe-banner">
+                <input class="recipeId" type="hidden" value="${recipe.id}"></input>
                     <img class="recipe-image" src="${recipe.image}">
                     <div class="recipe-info">
                         <h2>${recipe.nom}</h2>
