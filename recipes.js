@@ -8,8 +8,6 @@ function displayRecipes(page) {
       const recipes = data.recettes;
       const display = document.querySelector("#display");
 
-      // display.innerHTML = '';
-
       const start = (page - 1) * recipesPerPage;
       const end = page * recipesPerPage;
       const paginatedRecipes = recipes.slice(start, end);
@@ -45,7 +43,9 @@ function displayRecipes(page) {
             </article>
             `;
       });
-
+      attachEventListeners();
+    })
+    .then(() => {
         if (page === 1) {
             currentPage = 2;
         }
@@ -68,3 +68,35 @@ function initPagination() {
 }
 
 initPagination();
+
+function attachEventListeners() {
+    const addBtns = document.querySelectorAll(".addBtn");
+    addBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            const ingredient = this.parentNode;
+            const nom = ingredient.querySelector('.nom').textContent;
+            const quantite = parseInt(ingredient.querySelector('.quantite').textContent);
+
+            let existingList = localStorage.getItem('List');
+            if (!existingList) {
+                existingList = [];
+            } else {
+                existingList = JSON.parse(existingList);
+            }
+
+            const existingIngredient = existingList.find(item => item.nom === nom);
+
+            if (existingIngredient) {
+                existingIngredient.quantite += quantite;
+            } else {
+                existingList.push({ nom: nom, quantite: quantite });
+            }
+
+            localStorage.setItem('List', JSON.stringify(existingList));
+        });
+    });
+}
+
+        
+attachEventListeners();
