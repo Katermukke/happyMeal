@@ -1,8 +1,8 @@
 let currentPage = 1;
 let recipesPerPage = 9;
 
-function displayRecipes(page) {
-  fetch("data.json")
+async function displayRecipes(page) {
+  await fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
       const recipes = data.recettes;
@@ -44,6 +44,7 @@ function displayRecipes(page) {
             </article>
             `;
       });
+      checkFavRecipes();
       attachFavEvent();
       attachEventListeners();
     })
@@ -59,6 +60,20 @@ function displayRecipes(page) {
     });
 }
 
+async function checkFavRecipes() {
+
+    const favRecipes = await JSON.parse(localStorage.getItem('favRecipes'));
+
+    if (favRecipes) {
+        const addFavBtns = document.querySelectorAll('.addFav');
+        addFavBtns.forEach(button => {
+            const recipeId = button.parentNode.querySelector('.recipeId').value;
+            if (favRecipes.some(recipe => recipe.id === recipeId)) {
+                button.classList.add('colored');
+            }
+        });
+    }
+}
 
 function initPagination() {
   const paginationControls = document.querySelector("#pagination-controls");
@@ -129,7 +144,6 @@ function attachFavEvent() {
             } else {
                 existingFavList.splice(existingRecipeIndex, 1);
                 this.classList.remove('colored');
-                
             }
 
             localStorage.setItem('favRecipes', JSON.stringify(existingFavList));
