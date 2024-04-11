@@ -7,7 +7,6 @@ async function displayRecipes(page) {
     .then((data) => {
       const recipes = data.recettes;
       const display = document.querySelector("#display");
-
       const start = (page - 1) * recipesPerPage;
       const end = page * recipesPerPage;
       const paginatedRecipes = recipes.slice(start, end);
@@ -27,7 +26,7 @@ async function displayRecipes(page) {
                         <ul>
                             ${recipe.ingredients.map(ingredient => `
                                 <li class="ingredient">
-                                    <span class="nom">${ingredient.nom}:</span>
+                                    <span class="nom">${ingredient.nom}</span>
                                     <span class="quantite">${ingredient.quantite}</span>
                                     <button class="addBtn">+</button>
                                 </li>

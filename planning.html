@@ -8,25 +8,12 @@
     https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js
     "></script>
     <script src="planning.js" defer></script>
+    <link rel="stylesheet" href="style" />
   </head>
   <body>
-    <style>
-      #draggable-item {
-        width: 100px;
-        height: 50px;
-        background-color: blue;
-        color: white;
-        text-align: center;
-        line-height: 50px;
-      }
-
-      #trash {
-        height: 3rem;
-        width: 3rem;
-        background-color: red;
-      }
-    </style>
-    <div id="draggable-item" draggable="true">Element draggable</div>
+    <div id="div-draggable-item" draggable="true">
+      <ul class="ul"></ul>
+    </div>
     <div id="calendar"></div>
   </body>
 </html>
