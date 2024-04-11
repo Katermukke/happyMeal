@@ -7,10 +7,20 @@ document.addEventListener("DOMContentLoaded", function () {
       center: "title",
       right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
     },
-    events: [],
+    events: [
+      {
+        id: "a",
+        title: "my event",
+        start: "2024-04-11",
+      },
+    ],
     editable: true,
     eventDrop: function (info) {
       console.log("Event dropped:", info.event);
+    },
+
+    eventClick: function (info) {
+      info.event.remove();
     },
   });
   calendar.render();
@@ -21,20 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "My Draggable Event",
       start: new Date(),
     },
-  });
-
-  const trash = document.querySelector("#trash");
-  trash.addEventListener("drop", function (event) {
-    event.preventDefault();
-    const eventId = event.dataTransfer.getData("text");
-    const eventToRemove = calendar.getEventById(eventId);
-    if (eventToRemove) {
-      eventToRemove.remove();
-      console.log("Event removed:", eventToRemove);
-    }
-  });
-  trash.addEventListener("dragover", function (event) {
-    event.preventDefault();
   });
 });
 
