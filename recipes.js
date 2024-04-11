@@ -115,7 +115,7 @@ function attachEventListeners() {
     });
 }
 
-        
+
 attachEventListeners();
 
 function attachFavEvent() {
