@@ -216,19 +216,19 @@
             },
             {
                "nom":"Huile végétale",
-               "quantite":"quantité suffisante"
+               "quantite":"250mL"
             },
             {
                "nom":"Sel",
-               "quantite":"quantité suffisante"
+               "quantite":"10g"
             },
             {
                "nom":"Poivre",
-               "quantite":"quantité suffisante"
+               "quantite":"10g"
             },
             {
                "nom":"Paprika",
-               "quantite":"quantité suffisante"
+               "quantite":"5g"
             }
          ],
          "etapes":[
@@ -249,10 +249,22 @@
          "categorie":"Dessert",
          "temps_preparation":"20 minutes",
          "ingredients":[
-            "Fruits variés (fraises, kiwis, oranges, raisins, etc.), coupés en morceaux",
-            "Jus d'orange ou de citron",
-            "Miel ou sirop d'érable (facultatif)",
-            "Feuilles de menthe fraîche pour garnir"
+            {
+               "nom":"Fruits variés",
+               "quantite":"300g"
+            },
+            {
+               "nom":"Jus d'orange ou de citron",
+               "quantite":"1L"
+            },
+            {
+               "nom":"Miel ou sirop d'érable",
+               "quantite":"3 cuillères à café"
+            },
+            {
+               "nom":"Feuilles de menthe fraîche",
+               "quantite":"3"
+            }
          ],
          "etapes":[
             "Coupez tous les fruits en morceaux de taille similaire et placez-les dans un grand bol.",

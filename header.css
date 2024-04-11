@@ -67,12 +67,22 @@ header nav {
   
   .dropdown-menu.show {
     display: block;
+    top: 8rem;
+    z-index: 999;
+    left: auto;
+    right: 0;
   }
   
   .dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 0;
     margin: 0;
+  }
+  
+  #dropdownList {
+    width: 100%;
   }
   
   .dropdown-menu ul li {
