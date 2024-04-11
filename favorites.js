@@ -1,68 +1,93 @@
-let currentPage = 1;
-let recipesPerPage = 9;
+document.addEventListener('DOMContentLoaded', displayFavorites);
 
-async function displayRecipes(page) {
-  await fetch("data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const recipes = data.recettes;
-      const display = document.querySelector("#display");
-
-      const start = (page - 1) * recipesPerPage;
-      const end = page * recipesPerPage;
-      const paginatedRecipes = recipes.slice(start, end);
-
-      paginatedRecipes.forEach((recipe) => {
-        display.innerHTML += `
-            <article class="recipe">
-                <div class="recipe-banner">
-                <input class="recipeId" type="hidden" value="${recipe.id}"></input>
-                    <img class="recipe-image" src="${recipe.image}">
-                    <div class="recipe-info">
-                        <h2>${recipe.nom}</h2>
-                        <p>${recipe.categorie}</p>
-                        <p>Temps de préparation : ${
-                          recipe.temps_preparation
-                        }</p>
-                        <ul>
-                            ${recipe.ingredients.map(ingredient => `
-                                <li class="ingredient">
-                                    <span class="nom">${ingredient.nom}:</span>
-                                    <span class="quantite">${ingredient.quantite}</span>
-                                    <button class="addBtn">+</button>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </div>
-                <ul class="steps">
-                    ${recipe.etapes
-                      .map((etape) => `<li>${etape}</li><br>`)
-                      .join("")}
-                </ul>
-                <button class="addFav">Favoris</button>
-            </article>
-            `;
-      });
-      checkFavRecipes();
-      attachFavEvent();
-      attachEventListeners();
-    })
-    .then(() => {
-        if (page === 1) {
-            currentPage = 2;
+async function fetchRecipes() {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Le chargement des recettes a échoué.');
         }
-    })
-    .then(() => {
-      if (currentPage === 2) {
-        recipesPerPage = 5;
-      }
-    });
+        const data = await response.json();
+        return data.recettes;
+    } catch (error) {
+        document.getElementById('display').innerHTML = `<p>Erreur lors du chargement des recettes: ${error.message}</p>`;
+    }
 }
 
-async function checkFavRecipes() {
+function loadFavorites() {
+    const favorites = JSON.parse(localStorage.getItem('favRecipes')) || [];
+    return favorites;
+}
 
-    const favRecipes = await JSON.parse(localStorage.getItem('favRecipes'));
+
+
+async function displayFavorites() {
+    const favorites = loadFavorites();
+    const recipes = await fetchRecipes();
+
+    if (!recipes || favorites.length === 0) {
+        document.getElementById('display').innerHTML = '<p>Aucun favori sélectionné.</p>';
+        return;
+    }
+
+    
+    const favoriteRecipes = recipes.filter(recipe => favorites.some(fav => fav.id == recipe.id)); 
+
+
+    const displaySection = document.getElementById('display');
+    displaySection.innerHTML = ''; 
+
+   
+    if (favoriteRecipes.length === 0) {
+        displaySection.innerHTML = '<p>Aucune recette favorite trouvée.</p>';
+        return;
+    }
+
+    favoriteRecipes.forEach(recipe => {
+        const recipeElement = document.createElement('article');
+        recipeElement.className = 'recipe';
+        recipeElement.innerHTML = `
+        
+        <div class="recipe-banner">
+        <input class="recipeId" type="hidden" value="${recipe.id}"></input>
+            <img class="recipe-image" src="${recipe.image}">
+            <div class="recipe-info">
+                <h2>${recipe.nom}</h2>
+                <p>${recipe.categorie}</p>
+                <p>Temps de préparation : ${
+                  recipe.temps_preparation
+                }</p>
+                <ul>
+                    ${recipe.ingredients.map(ingredient => `
+                        <li class="ingredient">
+                            <span class="nom">${ingredient.nom}:</span>
+                            <span class="quantite">${ingredient.quantite}</span>
+                            <button class="addBtn">+</button>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        </div>
+        <ul class="steps">
+            ${recipe.etapes
+              .map((etape) => `<li>${etape}</li><br>`)
+              .join("")}
+        </ul>
+        <button class="addFav">Favoris</button>
+        
+        `;
+        displaySection.appendChild(recipeElement);
+    });
+    checkFavRecipes();
+    attachFavEvent();
+    attachEventListeners();
+}
+
+
+
+
+ function checkFavRecipes() {
+
+    const favRecipes = JSON.parse(localStorage.getItem('favRecipes'));
 
     if (favRecipes) {
         const addFavBtns = document.querySelectorAll('.addFav');
@@ -150,3 +175,7 @@ function attachFavEvent() {
         });
     });
 }
+
+
+
+
