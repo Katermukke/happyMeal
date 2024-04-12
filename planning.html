@@ -6,6 +6,7 @@
     <title>Planning</title>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <script src="planning.js" defer></script>
+    <script src="header.js" defer></script>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="planning.css">
   </head>
@@ -22,8 +23,13 @@
           <li class="link"><a href="favorites.html">Recettes favorites</a></li>
           <li class="link"><a href="planning.html">Planning</a></li>
         </ul>
-        <div class="svgRight"><img src="images/bag.png" alt="search" /></div>
-      </nav>
+        <div class="svgRight"><img src="images/bag.png" alt="search" />
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul id="dropdownList">
+            </ul>
+          </div>    
+        </div>
+      </nav> 
     </header>
     <main>
       <div id="draggable-item" draggable="true">Element draggable</div>
