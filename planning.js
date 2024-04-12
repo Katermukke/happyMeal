@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.querySelector("#calendar");
+
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     headerToolbar: {
@@ -31,6 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "My Draggable Event",
       start: new Date(),
     },
+  });
+
+  let list = JSON.parse(localStorage.getItem("List", "nom"));
+
+  let ul = document.querySelector(".ul");
+  list.forEach((element) => {
+    let li = document.createElement("li");
+
+    li.classList.add("draggable-item");
+
+    li.innerHTML = `${element.nom}`;
+    ul.appendChild(li);
+
+    console.log(element);
   });
 });
 
