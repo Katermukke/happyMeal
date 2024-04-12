@@ -15,7 +15,9 @@ async function displayRecipes(page) {
         display.innerHTML += `
             <article class="recipe">
                 <div class="recipe-banner">
-                <input class="recipeId" type="hidden" value="${recipe.id}"></input>
+                <input class="recipeId" type="hidden" value="${
+                  recipe.id
+                }"></input>
                     <img class="recipe-image" src="${recipe.image}">
                     <div class="recipe-info">
                         <h2>${recipe.nom}</h2>
@@ -24,13 +26,17 @@ async function displayRecipes(page) {
                           recipe.temps_preparation
                         }</p>
                         <ul>
-                            ${recipe.ingredients.map(ingredient => `
+                            ${recipe.ingredients
+                              .map(
+                                (ingredient) => `
                                 <li class="ingredient">
                                     <span class="nom">${ingredient.nom}</span>
                                     <span class="quantite">${ingredient.quantite}</span>
                                     <button class="addBtn">+</button>
                                 </li>
-                            `).join('')}
+                            `
+                              )
+                              .join("")}
                         </ul>
                     </div>
                 </div>
@@ -48,9 +54,9 @@ async function displayRecipes(page) {
       attachEventListeners();
     })
     .then(() => {
-        if (page === 1) {
-            currentPage = 2;
-        }
+      if (page === 1) {
+        currentPage = 2;
+      }
     })
     .then(() => {
       if (currentPage === 2) {
@@ -60,18 +66,17 @@ async function displayRecipes(page) {
 }
 
 async function checkFavRecipes() {
+  const favRecipes = await JSON.parse(localStorage.getItem("favRecipes"));
 
-    const favRecipes = await JSON.parse(localStorage.getItem('favRecipes'));
-
-    if (favRecipes) {
-        const addFavBtns = document.querySelectorAll('.addFav');
-        addFavBtns.forEach(button => {
-            const recipeId = button.parentNode.querySelector('.recipeId').value;
-            if (favRecipes.some(recipe => recipe.id === recipeId)) {
-                button.classList.add('colored');
-            }
-        });
-    }
+  if (favRecipes) {
+    const addFavBtns = document.querySelectorAll(".addFav");
+    addFavBtns.forEach((button) => {
+      const recipeId = button.parentNode.querySelector(".recipeId").value;
+      if (favRecipes.some((recipe) => recipe.id === recipeId)) {
+        button.classList.add("colored");
+      }
+    });
+  }
 }
 
 function initPagination() {
@@ -86,67 +91,67 @@ function initPagination() {
 initPagination();
 
 function attachEventListeners() {
-    const addBtns = document.querySelectorAll(".addBtn");
-    addBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
+  const addBtns = document.querySelectorAll(".addBtn");
+  addBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const ingredient = this.parentNode;
+      const nom = ingredient.querySelector(".nom").textContent;
+      const quantite = parseInt(
+        ingredient.querySelector(".quantite").textContent
+      );
 
-            const ingredient = this.parentNode;
-            const nom = ingredient.querySelector('.nom').textContent;
-            const quantite = parseInt(ingredient.querySelector('.quantite').textContent);
+      let existingList = localStorage.getItem("List");
+      if (!existingList) {
+        existingList = [];
+      } else {
+        existingList = JSON.parse(existingList);
+      }
 
-            let existingList = localStorage.getItem('List');
-            if (!existingList) {
-                existingList = [];
-            } else {
-                existingList = JSON.parse(existingList);
-            }
+      const existingIngredient = existingList.find((item) => item.nom === nom);
 
-            const existingIngredient = existingList.find(item => item.nom === nom);
+      if (existingIngredient) {
+        existingIngredient.quantite += quantite;
+      } else {
+        existingList.push({ nom: nom, quantite: quantite });
+      }
 
-            if (existingIngredient) {
-                existingIngredient.quantite += quantite;
-            } else {
-                existingList.push({ nom: nom, quantite: quantite });
-            }
-
-            localStorage.setItem('List', JSON.stringify(existingList));
-        });
+      localStorage.setItem("List", JSON.stringify(existingList));
     });
+  });
 }
-
-
 
 attachEventListeners();
 
 function attachFavEvent() {
-    let addFavBtn = document.querySelectorAll('.addFav');
-    addFavBtn.forEach(button => {
-        button.addEventListener('click', function() {
+  let addFavBtn = document.querySelectorAll(".addFav");
+  addFavBtn.forEach((button) => {
+    button.addEventListener("click", function () {
+      const parentRecipes = this.parentNode;
+      const recipeId = parentRecipes.querySelector(".recipeId").value;
+      const idJson = {
+        id: recipeId,
+      };
 
-            const parentRecipes = this.parentNode;
-            const recipeId = parentRecipes.querySelector('.recipeId').value;
-            const idJson = {
-                id : recipeId
-            };
+      let existingFavList = localStorage.getItem("favRecipes");
+      if (!existingFavList) {
+        existingFavList = [];
+      } else {
+        existingFavList = JSON.parse(existingFavList);
+      }
 
-            let existingFavList = localStorage.getItem('favRecipes');
-            if (!existingFavList) {
-                existingFavList = [];
-            } else {
-                existingFavList = JSON.parse(existingFavList);
-            }
+      const existingRecipeIndex = existingFavList.findIndex(
+        (item) => item.id === recipeId
+      );
 
-            const existingRecipeIndex = existingFavList.findIndex(item => item.id === recipeId);
+      if (existingRecipeIndex === -1) {
+        existingFavList.push(idJson);
+        this.classList.add("colored");
+      } else {
+        existingFavList.splice(existingRecipeIndex, 1);
+        this.classList.remove("colored");
+      }
 
-            if (existingRecipeIndex === -1) {
-                existingFavList.push(idJson);
-                this.classList.add('colored');
-            } else {
-                existingFavList.splice(existingRecipeIndex, 1);
-                this.classList.remove('colored');
-            }
-
-            localStorage.setItem('favRecipes', JSON.stringify(existingFavList));
-        });
+      localStorage.setItem("favRecipes", JSON.stringify(existingFavList));
     });
+  });
 }
